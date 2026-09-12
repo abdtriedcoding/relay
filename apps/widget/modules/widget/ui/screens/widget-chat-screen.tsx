@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { useThreadMessages, toUIMessages } from '@convex-dev/agent/react';
@@ -98,6 +98,9 @@ export const WidgetChatScreen = () => {
         contactSessionId
       });
       form.reset();
+      setTimeout(() => {
+        form.setFocus('message');
+      }, 100);
     } catch (error) {
       console.error(error);
       form.setError('message', {
@@ -127,14 +130,14 @@ export const WidgetChatScreen = () => {
           <MenuIcon className='size-4' />
         </Button>
       </WidgetHeader>
-      <Conversation>
+      <Conversation className='max-h-[calc(100vh-68px-64px-22px)] flex-1'>
         <ConversationContent>
-          <InfiniteScrollTrigger
+          {/* <InfiniteScrollTrigger
             canLoadMore={canLoadMore}
             isLoadingMore={isLoadingMore}
             onLoadMore={handleLoadMore}
             ref={topEleRef}
-          />
+          /> */}
           {toUIMessages(messages.results ?? [])?.map((message: any) => (
             <Message
               key={message.id}
@@ -157,56 +160,57 @@ export const WidgetChatScreen = () => {
 
       {/* FORM */}
 
-      <Form {...form}>
-        <PromptInput
-          className='relative rounded-none border-x-0 border-b-0'
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
-          <FormField
-            control={form.control}
-            disabled={conversation?.status === 'resolved'}
-            name='message'
-            render={({ field }) => (
-              <PromptInputTextarea
-                disabled={
-                  conversation?.status === 'resolved' || isPendingCreateMessage
-                }
-                onChange={field.onChange}
-                onKeyDown={(e: React.KeyboardEvent) => {
-                  if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    form.handleSubmit(onSubmit)();
+      <div className='p-2'>
+        <Form {...form}>
+          <PromptInput onSubmit={form.handleSubmit(onSubmit)}>
+            <FormField
+              control={form.control}
+              disabled={conversation?.status === 'resolved'}
+              name='message'
+              render={({ field }) => (
+                <PromptInputTextarea
+                  {...form.register('message')}
+                  disabled={
+                    conversation?.status === 'resolved' ||
+                    isPendingCreateMessage
                   }
-                }}
-                placeholder={
-                  conversation?.status === 'resolved'
-                    ? 'This conversation has been resolved'
-                    : 'Type your message...'
-                }
-                value={field.value}
-              />
-            )}
-          />
-          <PromptInputToolbar>
-            <PromptInputSubmit
-              className='absolute bottom-1 right-1'
-              disabled={
-                conversation?.status === 'resolved' ||
-                !form.formState.isValid ||
-                isPendingCreateMessage
-              }
-              status={
-                isPendingCreateMessage
-                  ? 'submitted'
-                  : form.formState.errors.message
-                    ? 'error'
-                    : 'ready'
-              }
-              type='submit'
+                  onChange={field.onChange}
+                  onKeyDown={(e: React.KeyboardEvent) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault();
+                      form.handleSubmit(onSubmit)();
+                    }
+                  }}
+                  placeholder={
+                    conversation?.status === 'resolved'
+                      ? 'This conversation has been resolved'
+                      : 'Type your message...'
+                  }
+                  value={field.value}
+                />
+              )}
             />
-          </PromptInputToolbar>
-        </PromptInput>
-      </Form>
+            <PromptInputToolbar>
+              <div></div>
+              <PromptInputSubmit
+                disabled={
+                  conversation?.status === 'resolved' ||
+                  !form.formState.isValid ||
+                  isPendingCreateMessage
+                }
+                status={
+                  isPendingCreateMessage
+                    ? 'submitted'
+                    : form.formState.errors.message
+                      ? 'error'
+                      : 'ready'
+                }
+                type='submit'
+              />
+            </PromptInputToolbar>
+          </PromptInput>
+        </Form>
+      </div>
     </>
   );
 };

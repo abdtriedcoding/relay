@@ -1,17 +1,21 @@
 FROM node:22-alpine AS base
- 
+# enable pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
 FROM base AS builder
 RUN apk update
 RUN apk add --no-cache libc6-compat
 # Set working directory
 WORKDIR /app
 # Replace <your-major-version> with the major version installed in your repository. For example:
-# RUN yarn global add turbo@^2
-RUN yarn global add turbo@^2.4.2
+# RUN pnpm global add turbo@^2
+RUN pnpm add -g turbo@^2.4.2
 COPY . .
  
 # Generate a partial monorepo with a pruned lockfile for a target workspace.
-# Assuming "web" is the name entered in the project's package.json: { name: "web" }
+# Prune the web workspace specifically
 RUN turbo prune web --docker
  
 # Add lockfile and package.json's of isolated subworkspace
@@ -22,11 +26,15 @@ WORKDIR /app
  
 # First install the dependencies (as they change less often)
 COPY --from=builder /app/out/json/ .
-RUN yarn install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
  
 # Build the project
 COPY --from=builder /app/out/full/ .
-RUN yarn turbo run build
+
+# Add output: 'standalone' to next.config.mjs for Docker build
+RUN sed -i "s/transpilePackages: \['@workspace\/ui'\]/transpilePackages: ['@workspace\/ui'],\n  output: 'standalone',/" apps/web/next.config.mjs
+
+RUN pnpm turbo run build
  
 FROM base AS runner
 WORKDIR /app
@@ -41,5 +49,11 @@ USER nextjs
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
+
+EXPOSE 3000
+
+ENV PORT=3000
+
+ENV HOSTNAME="0.0.0.0"
  
-CMD node apps/web/server.js
+CMD ["node", "apps/web/server.js"]

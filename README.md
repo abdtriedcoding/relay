@@ -2,6 +2,8 @@
 
 A comprehensive customer support platform built with AI-powered chat widgets, voice calling, and knowledge base management. Built as a Turbo monorepo with Next.js 15, Convex, and modern web technologies.
 
+> **Attribution:** This repository is a copy of [thuykaka/next-saas-ai-support-platform](https://github.com/thuykaka/next-saas-ai-support-platform), used as a demonstration repository for a Git internals workshop. The commit author/committer metadata and commit dates in this copy were rewritten for that purpose and do not reflect the original authorship of the code; see the upstream repository for the original history and contributors.
+
 ## 🌐 Live Demos
 
 - **Web CMS Dashboard**: [next-saas-ai-support-platform-web.vercel.app](https://next-saas-ai-support-platform-web.vercel.app)

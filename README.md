@@ -163,4 +163,4 @@ cd docker/convex   && docker-compose up -d   # self-hosted Convex
 
 ## License
 
-No license has been declared for this repository.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

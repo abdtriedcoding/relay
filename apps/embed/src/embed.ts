@@ -23,7 +23,7 @@ import { chatBubbleIcon, closeIcon } from './icons';
   } else {
     // Fallback: find script tag by src
     const scripts = document.querySelectorAll(
-      'script[src*="echo-widget"], script[src*="embed"]'
+      'script[src*="relay-widget"], script[src*="echo-widget"], script[src*="embed"]'
     );
     const embedScript = Array.from(scripts).find((script) =>
       script.hasAttribute('data-org-id')
@@ -40,7 +40,7 @@ import { chatBubbleIcon, closeIcon } from './icons';
 
   // Exit if no organization ID
   if (!orgId) {
-    console.error('Echo Widget: data-org-id attribute is required');
+    console.error('Relay Widget: data-org-id attribute is required');
     return;
   }
 
@@ -56,7 +56,7 @@ import { chatBubbleIcon, closeIcon } from './icons';
     // Create floating action button
     button = document.createElement('button');
     button.type = 'button';
-    button.id = 'echo-widget-button';
+    button.id = 'relay-widget-button';
     button.innerHTML = chatBubbleIcon;
     button.style.cssText = `
       position: fixed;
@@ -89,7 +89,7 @@ import { chatBubbleIcon, closeIcon } from './icons';
 
     // Create container (hidden by default)
     container = document.createElement('div');
-    container.id = 'echo-widget-container';
+    container.id = 'relay-widget-container';
     container.style.cssText = `
       position: fixed;
       ${position === 'bottom-right' ? 'right: 20px;' : 'left: 20px;'}
@@ -224,12 +224,16 @@ import { chatBubbleIcon, closeIcon } from './icons';
   }
 
   // Expose API to global scope
-  (window as any).EchoWidget = {
+  const api = {
     init: reinit,
     show,
     hide,
     destroy
   };
+
+  (window as any).RelayWidget = api;
+  // Backwards-compatible alias for embeds built against the old global name
+  (window as any).EchoWidget = api;
 
   // Auto-initialize
   init();

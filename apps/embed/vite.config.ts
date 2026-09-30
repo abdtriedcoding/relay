@@ -5,8 +5,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/embed.ts'),
-      name: 'EchoWidget',
-      fileName: (format) => `echo-widget.${format}.js`,
+      name: 'RelayWidget',
+      fileName: (format) => `relay-widget.${format}.js`,
       formats: ['iife']
     },
     rollupOptions: {

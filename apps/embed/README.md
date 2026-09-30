@@ -1,4 +1,4 @@
-# Echo Widget Embed
+# Relay Widget Embed
 
 A customer support chat widget that can be embedded into your website.
 
@@ -18,7 +18,7 @@ Add the script tag to your website's `<head>` or end of `<body>`:
 
 ```html
 <script
-  src="https://your-domain.com/echo-widget.iife.js"
+  src="https://your-domain.com/relay-widget.iife.js"
   data-org-id="your-organization-id"
   data-position="bottom-right"
 ></script>
@@ -56,7 +56,7 @@ Server will run at `http://localhost:3002`
 pnpm build
 ```
 
-Build file will be created in `dist/` directory as `echo-widget.iife.js`
+Build file will be created in `dist/` directory as `relay-widget.iife.js`
 
 ### Preview Build
 
@@ -87,7 +87,7 @@ demo/
 └── index.html     # Demo with controls
 
 dist/
-└── echo-widget.iife.js  # Production build file
+└── relay-widget.iife.js  # Production build file
 ```
 
 ## Customization

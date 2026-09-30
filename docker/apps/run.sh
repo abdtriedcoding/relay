@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "🚀 Starting Next SaaS AI Support Platform..."
+echo "🚀 Starting Relay..."
 
 docker compose up -d --force-recreate
 
-echo "🚀 Starting Next SaaS AI Support Platform... Done"
+echo "🚀 Starting Relay... Done"

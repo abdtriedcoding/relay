@@ -1,7 +1,27 @@
 {
-  "name": "shadcn-ui-monorepo",
+  "name": "relay",
   "version": "0.0.1",
   "private": true,
+  "description": "AI-powered customer support platform: embeddable chat widget, voice calls, and a RAG knowledge base on a real-time dashboard.",
+  "author": "Abdullah <abdullahtriedcoding@gmail.com> (https://github.com/abdtriedcoding)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdtriedcoding/relay.git"
+  },
+  "homepage": "https://github.com/abdtriedcoding/relay#readme",
+  "bugs": {
+    "url": "https://github.com/abdtriedcoding/relay/issues"
+  },
+  "keywords": [
+    "customer-support",
+    "ai-agent",
+    "rag",
+    "chat-widget",
+    "voice-ai",
+    "nextjs",
+    "convex",
+    "turborepo"
+  ],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",

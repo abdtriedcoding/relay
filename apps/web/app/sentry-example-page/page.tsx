@@ -50,7 +50,7 @@ export default function Page() {
           <a
             target='_blank'
             rel='noreferrer'
-            href='https://thuy-acme.sentry.io/issues/?project=4509802100883456'
+            href='https://relay.sentry.io/issues/?project=4509802100883456'
           >
             Issues Page
           </a>

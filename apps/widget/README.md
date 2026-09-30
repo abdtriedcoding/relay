@@ -1,4 +1,4 @@
-# Echo Widget
+# Relay Widget
 
 A Next.js application that provides a customer support chat widget interface designed to be embedded as an iframe.
 
@@ -76,12 +76,12 @@ This widget is designed to be embedded in an iframe. The embed script (from the 
 
 ### Embed script (recommended)
 
-Add the EchoWidget script to your site and initialize it:
+Add the RelayWidget script to your site and initialize it:
 
 ```html
-<script src="/apps/embed/dist/echo-widget.iife.js" defer></script>
+<script src="/apps/embed/dist/relay-widget.iife.js" defer></script>
 <script>
-  window.EchoWidget.init({
+  window.RelayWidget.init({
     orgId: 'your-organization-id', // required unless a default is configured
     position: 'bottom-right' // or 'bottom-left'
   });

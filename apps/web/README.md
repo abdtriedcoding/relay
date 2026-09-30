@@ -1,10 +1,10 @@
-# Echo Web CMS
+# Relay Web CMS
 
-The main Content Management System (CMS) for the Echo customer support widget platform. This Next.js application provides a comprehensive dashboard for managing customer support operations, widget customization, integrations, and billing.
+The main Content Management System (CMS) for the Relay customer support widget platform. This Next.js application provides a comprehensive dashboard for managing customer support operations, widget customization, integrations, and billing.
 
 ## Overview
 
-This is the primary web application that serves as the control center for the Echo widget platform. It provides a complete dashboard interface for organizations to manage their customer support operations, customize their widget appearance, configure integrations, and handle billing.
+This is the primary web application that serves as the control center for the Relay widget platform. It provides a complete dashboard interface for organizations to manage their customer support operations, customize their widget appearance, configure integrations, and handle billing.
 
 ## Features
 

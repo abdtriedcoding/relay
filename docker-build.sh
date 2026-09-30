@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Building Next SaaS AI Support Platform..."
+echo "🚀 Building Relay..."
 
 # Build the web app
 echo "🚀 Building Web App ..."

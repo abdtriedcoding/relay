@@ -19,6 +19,36 @@ Relay gives every product a support surface in minutes — drop a single script 
 - **Billing** — plan and subscription management for organizations.
 - **Observability** — Sentry error tracking and source-map uploads across apps.
 
+## Screenshots
+
+### Web dashboard
+
+| Authentication | Conversations |
+| :---: | :---: |
+| ![Dashboard authentication](github/images/web-cms-auth.png) | ![Real-time conversation inbox](github/images/web-cms-conversations.png) |
+
+| Knowledge base | Widget customization |
+| :---: | :---: |
+| ![Knowledge base management](github/images/web-cms-knowledge-base.png) | ![Widget customization editor](github/images/web-cms-widget-customization.png) |
+
+| Integrations | Voice assistant |
+| :---: | :---: |
+| ![Platform integrations](github/images/web-cms-integration.png) | ![Voice assistant configuration](github/images/web-cms-voice-assistant.png) |
+
+| Plans & billing | |
+| :---: | :---: |
+| ![Plans and billing](github/images/web-cms-plan-and-billing.png) | |
+
+### Chat widget
+
+| Selection screen | Voice call |
+| :---: | :---: |
+| ![Widget selection screen](github/images/widget-embed-1.png) | ![Voice calling interface](github/images/widget-embed-2.png) |
+
+| Authentication | Conversation |
+| :---: | :---: |
+| ![Widget authentication](github/images/widget-embed-3.png) | ![Widget chat interface](github/images/widget-embed-4.png) |
+
 ## Architecture
 
 A Turborepo monorepo managed with pnpm workspaces:

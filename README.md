@@ -21,49 +21,53 @@ Relay gives every product a support surface in minutes — drop a single script 
 
 ## Screenshots
 
+Every screen from the current Relay interface, captured with Playwright from the running monorepo. The dashboard, customer chat widget, and embed loader are all covered here.
+
 ### Web dashboard
 
-| Authentication | Conversations |
+| Sign in | Workspace home |
 | :---: | :---: |
-| ![Dashboard authentication](github/images/web-cms-auth.png) | ![Real-time conversation inbox](github/images/web-cms-conversations.png) |
+| ![Sign in](screenshots/gallery/01-sign-in.png) | ![Workspace home](screenshots/gallery/02-home-light.png) |
+
+| Conversations | Conversation thread |
+| :---: | :---: |
+| ![Operator inbox](screenshots/gallery/03-conversations.png) | ![Conversation thread with an operator reply](screenshots/gallery/04-conversation-detail.png) |
 
 | Knowledge base | Widget customization |
 | :---: | :---: |
-| ![Knowledge base management](github/images/web-cms-knowledge-base.png) | ![Widget customization editor](github/images/web-cms-widget-customization.png) |
+| ![Knowledge base](screenshots/gallery/05-files.png) | ![Widget customization](screenshots/gallery/06-customization.png) |
 
-| Integrations | Voice assistant |
+| Integrations | Embed snippet dialog |
 | :---: | :---: |
-| ![Platform integrations](github/images/web-cms-integration.png) | ![Voice assistant configuration](github/images/web-cms-voice-assistant.png) |
+| ![Integrations](screenshots/gallery/07-integrations.png) | ![Embed snippet dialog](screenshots/gallery/08-embed-dialog.png) |
 
-| Plans & billing | |
+| Voice assistant | Plans and billing |
 | :---: | :---: |
-| ![Plans and billing](github/images/web-cms-plan-and-billing.png) | |
+| ![Voice assistant](screenshots/gallery/09-voice-assistant.png) | ![Plans and billing](screenshots/gallery/10-billing.png) |
+
+| Workspace home in dark theme | |
+| :---: | :---: |
+| ![Workspace home in dark theme](screenshots/gallery/11-home-dark.png) | |
 
 ### Chat widget
 
-| Selection screen | Voice call |
+| Visitor details | Contact options |
 | :---: | :---: |
-| ![Widget selection screen](github/images/widget-embed-1.png) | ![Voice calling interface](github/images/widget-embed-2.png) |
+| ![Visitor details](screenshots/gallery/12-widget-auth.png) | ![Contact options](screenshots/gallery/13-widget-selection.png) |
 
-| Authentication | Conversation |
+| Visitor chat with AI replies | Visitor inbox |
 | :---: | :---: |
-| ![Widget authentication](github/images/widget-embed-3.png) | ![Widget chat interface](github/images/widget-embed-4.png) |
+| ![Visitor chat with two AI replies](screenshots/gallery/14-widget-chat.png) | ![Visitor inbox](screenshots/gallery/15-widget-inbox.png) |
 
-### Current design
-
-[Open the full interface gallery](screenshots/relay-complete-gallery.html). It collects 18 screenshots from all three apps, including a visitor AI exchange and an operator reply in the inbox.
-
-| Dashboard | Conversations |
+| Invalid organization error | |
 | :---: | :---: |
-| ![Workspace home](screenshots/redesign-web-home-light.png) | ![Operator inbox](screenshots/redesign-web-conversations-light.png) |
+| ![Error state](screenshots/gallery/16-widget-error.png) | |
 
-| Widget chat | Embed launcher |
-| :---: | :---: |
-| ![Visitor chat](screenshots/redesign-widget-chat.png) | ![Floating launcher](screenshots/redesign-embed-open.png) |
+### Embed loader
 
-| Dashboard in dark theme | Widget contact options |
+| Demo page | Widget open in launcher |
 | :---: | :---: |
-| ![Dark theme](screenshots/redesign-web-home-dark.png) | ![Contact options](screenshots/redesign-widget-selection.png) |
+| ![Embed demo page](screenshots/gallery/17-embed-demo.png) | ![Widget open in the launcher](screenshots/gallery/18-embed-open.png) |
 
 ## Architecture
 

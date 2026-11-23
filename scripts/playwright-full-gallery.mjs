@@ -42,6 +42,18 @@ async function capture(page, section, name, caption, wait = 3500) {
   console.log(`captured ${name}`);
 }
 
+async function gotoChecked(url, marker) {
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(7000);
+  let body = await page.locator('body').innerText();
+  if (!body.includes(marker)) {
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(10000);
+    body = await page.locator('body').innerText();
+  }
+  console.log(`${marker} ready:`, body.includes(marker));
+}
+
 // Web app
 const webContext = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 await webContext.addCookies([
@@ -99,11 +111,18 @@ if (await firstConversation.count()) {
   await capture(page, 'Web dashboard', '04-conversation-detail', 'Conversation thread with an operator reply and AI assist controls', 3000);
 }
 
-await page.goto('http://localhost:3000/files', { waitUntil: 'domcontentloaded' });
-await capture(page, 'Web dashboard', '05-files', 'Knowledge base feature and its Pro upgrade state', 6000);
+await gotoChecked('http://localhost:3000/files', 'Knowledge Base');
+await capture(page, 'Web dashboard', '05-files', 'Knowledge base with document management', 6000);
+const addFile = page.getByRole('button', { name: 'Add File' });
+if (await addFile.count()) {
+  await addFile.click();
+  await capture(page, 'Web dashboard', '05b-files-upload-dialog', 'Knowledge base upload dialog', 2500);
+  const closeDialog = page.getByRole('button', { name: 'Close' });
+  if (await closeDialog.count()) await closeDialog.click();
+}
 
-await page.goto('http://localhost:3000/customization', { waitUntil: 'domcontentloaded' });
-await capture(page, 'Web dashboard', '06-customization', 'Widget customization feature and its Pro upgrade state', 6000);
+await gotoChecked('http://localhost:3000/customization', 'Widget Customization');
+await capture(page, 'Web dashboard', '06-customization', 'Widget customization form', 6000);
 
 await page.goto('http://localhost:3000/integrations', { waitUntil: 'domcontentloaded' });
 await capture(page, 'Web dashboard', '07-integrations', 'Setup and integrations with organization ID', 6000);
@@ -120,8 +139,8 @@ if (await integrationTile.count()) {
   if (await close.count()) await close.click();
 }
 
-await page.goto('http://localhost:3000/plugins/vapi', { waitUntil: 'domcontentloaded' });
-await capture(page, 'Web dashboard', '09-voice-assistant', 'Voice assistant feature and its Pro upgrade state', 6000);
+await gotoChecked('http://localhost:3000/plugins/vapi', 'VAPI Plugin');
+await capture(page, 'Web dashboard', '09-voice-assistant', 'Voice assistant plugin setup', 6000);
 
 await page.goto('http://localhost:3000/billing', { waitUntil: 'domcontentloaded' });
 await capture(page, 'Web dashboard', '10-billing', 'Plans and billing', 6000);

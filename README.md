@@ -21,7 +21,7 @@ Relay gives every product a support surface in minutes — drop a single script 
 
 ## Screenshots
 
-Every screen from the current Relay interface, captured with Playwright from the running monorepo. The dashboard, customer chat widget, and embed loader are all covered here.
+Every screen from the current Relay interface, captured with Playwright from the running monorepo. The dashboard, customer chat widget, and embed loader are all covered here, including the Pro screens for the knowledge base, widget customization, and voice assistant.
 
 ### Web dashboard
 
@@ -33,17 +33,21 @@ Every screen from the current Relay interface, captured with Playwright from the
 | :---: | :---: |
 | ![Operator inbox](screenshots/gallery/03-conversations.png) | ![Conversation thread with an operator reply](screenshots/gallery/04-conversation-detail.png) |
 
-| Knowledge base | Widget customization |
+| Knowledge base | Knowledge base upload dialog |
 | :---: | :---: |
-| ![Knowledge base](screenshots/gallery/05-files.png) | ![Widget customization](screenshots/gallery/06-customization.png) |
+| ![Knowledge base](screenshots/gallery/05-files.png) | ![Upload dialog](screenshots/gallery/05b-files-upload-dialog.png) |
 
-| Integrations | Embed snippet dialog |
+| Widget customization | Integrations |
 | :---: | :---: |
-| ![Integrations](screenshots/gallery/07-integrations.png) | ![Embed snippet dialog](screenshots/gallery/08-embed-dialog.png) |
+| ![Widget customization form](screenshots/gallery/06-customization.png) | ![Integrations](screenshots/gallery/07-integrations.png) |
 
-| Voice assistant | Plans and billing |
+| Embed snippet dialog | Voice assistant |
 | :---: | :---: |
-| ![Voice assistant](screenshots/gallery/09-voice-assistant.png) | ![Plans and billing](screenshots/gallery/10-billing.png) |
+| ![Embed snippet dialog](screenshots/gallery/08-embed-dialog.png) | ![Voice assistant plugin setup](screenshots/gallery/09-voice-assistant.png) |
+
+| Plans and billing | |
+| :---: | :---: |
+| ![Plans and billing](screenshots/gallery/10-billing.png) | |
 
 | Workspace home in dark theme | |
 | :---: | :---: |

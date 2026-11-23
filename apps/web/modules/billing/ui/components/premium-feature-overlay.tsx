@@ -77,25 +77,27 @@ export const PremiumFeatureOverlay = ({
         {children}
       </div>
 
-      <div className='absolute inset-0 bg-black/50 backdrop-blur-[2px]' />
+      <div className='absolute inset-0 bg-[#0e2229]/60 backdrop-blur-[2px]' />
 
       <div className='absolute inset-0 z-40 flex items-center justify-center p-4'>
-        <Card className='w-full max-w-lg'>
+        <Card className='w-full max-w-lg border-t-2 border-t-signal'>
           <CardHeader className='text-center'>
             <div className='flex items-center justify-center'>
-              <div className='bg-muted mb-2 inline-flex h-12 w-12 items-center justify-center rounded-full border'>
-                <GemIcon className='text-primary h-6 w-6' />
+              <div className='mb-2 inline-flex size-12 items-center justify-center bg-signal/20 text-signal-strong'>
+                <GemIcon className='size-6' />
               </div>
             </div>
-            <CardTitle className='text-2xl font-bold'>Upgrade to Pro</CardTitle>
+            <CardTitle className='font-display text-2xl font-semibold tracking-[-0.03em]'>
+              Upgrade to Pro
+            </CardTitle>
             <CardDescription>Get access to all features</CardDescription>
           </CardHeader>
           <CardContent className='space-y-6'>
             <div className='space-y-6'>
               {features.map((feature) => (
                 <div key={feature.label} className='flex items-center gap-x-3'>
-                  <div className='bg-muted flex size-8 items-center justify-center rounded-full border'>
-                    <feature.icon className='text-muted-foreground size-4' />
+                  <div className='bg-secondary flex size-8 items-center justify-center'>
+                    <feature.icon className='text-foreground size-4' />
                   </div>
                   <div className='text-left'>
                     <p className='text-sm font-medium'>{feature.label}</p>
@@ -108,8 +110,9 @@ export const PremiumFeatureOverlay = ({
             </div>
 
             <Button
-              className='w-full'
+              className='font-display w-full'
               size='lg'
+              variant='warning'
               onClick={() => {
                 router.push('/billing');
               }}

@@ -13,6 +13,7 @@ import {
   SidebarMenuItem,
   SidebarRail
 } from '@workspace/ui/components/sidebar';
+import { RelayWordmark } from '@workspace/ui/components/relay-brand';
 import { cn } from '@workspace/ui/lib/utils';
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
@@ -37,7 +38,17 @@ export const AppSidebar = () => {
 
   return (
     <Sidebar collapsible='icon' className='sidebar-scrollbar group'>
-      <SidebarHeader>
+      <SidebarHeader className='gap-3 px-3 pt-4 pb-2'>
+        <div className='px-1 group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:justify-center'>
+          <Link href='/' aria-label='Relay home'>
+            <RelayWordmark
+              className='text-sidebar-foreground'
+              markClassName='size-9'
+              hideWordOnCollapse
+            />
+          </Link>
+        </div>
+        <div className='h-px bg-sidebar-border group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:w-8' />
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
@@ -68,7 +79,9 @@ export const AppSidebar = () => {
       <SidebarContent className='overflow-x-hidden'>
         {/* Customer Support */}
         <SidebarGroup>
-          <SidebarGroupLabel>Customer Support</SidebarGroupLabel>
+          <SidebarGroupLabel className='px-3 text-[11px] tracking-[0.08em] text-sidebar-foreground/45'>
+            Customer support
+          </SidebarGroupLabel>
           <SidebarMenu>
             {customerSupportNavItems.map((item) => (
               <SidebarMenuItem key={item.url}>
@@ -78,7 +91,7 @@ export const AppSidebar = () => {
                   isActive={pathname.startsWith(item.url)}
                   className={cn(
                     pathname.startsWith(item.url) &&
-                      'from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90! bg-gradient-to-b'
+                      'signal-edge bg-sidebar-accent text-sidebar-accent-foreground!'
                   )}
                 >
                   <Link href={item.url}>
@@ -93,7 +106,9 @@ export const AppSidebar = () => {
 
         {/* Configuration */}
         <SidebarGroup>
-          <SidebarGroupLabel>Configuration</SidebarGroupLabel>
+          <SidebarGroupLabel className='px-3 text-[11px] tracking-[0.08em] text-sidebar-foreground/45'>
+            Workspace
+          </SidebarGroupLabel>
           <SidebarMenu>
             {configurationNavItems.map((item) => (
               <SidebarMenuItem key={item.url}>
@@ -103,7 +118,7 @@ export const AppSidebar = () => {
                   isActive={pathname.startsWith(item.url)}
                   className={cn(
                     pathname.startsWith(item.url) &&
-                      'from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90! bg-gradient-to-b'
+                      'signal-edge bg-sidebar-accent text-sidebar-accent-foreground!'
                   )}
                 >
                   <Link href={item.url}>
@@ -118,7 +133,9 @@ export const AppSidebar = () => {
 
         {/* Account */}
         <SidebarGroup>
-          <SidebarGroupLabel>Account</SidebarGroupLabel>
+          <SidebarGroupLabel className='px-3 text-[11px] tracking-[0.08em] text-sidebar-foreground/45'>
+            Account
+          </SidebarGroupLabel>
           <SidebarMenu>
             {accountNavItems.map((item) => (
               <SidebarMenuItem key={item.url}>
@@ -128,7 +145,7 @@ export const AppSidebar = () => {
                   isActive={pathname.startsWith(item.url)}
                   className={cn(
                     pathname.startsWith(item.url) &&
-                      'from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90! bg-gradient-to-b'
+                      'signal-edge bg-sidebar-accent text-sidebar-accent-foreground!'
                   )}
                 >
                   <Link href={item.url}>

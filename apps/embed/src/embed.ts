@@ -1,5 +1,5 @@
 import { EMBED_CONFIG } from './config';
-import { chatBubbleIcon, closeIcon } from './icons';
+import { closeIcon, relayMarkIcon } from './icons';
 
 (function () {
   let iframe: HTMLIFrameElement | null = null;
@@ -57,24 +57,25 @@ import { chatBubbleIcon, closeIcon } from './icons';
     button = document.createElement('button');
     button.type = 'button';
     button.id = 'relay-widget-button';
-    button.innerHTML = chatBubbleIcon;
+    button.innerHTML = relayMarkIcon;
+    button.setAttribute('aria-label', 'Open Relay support chat');
     button.style.cssText = `
       position: fixed;
       ${position === 'bottom-right' ? 'right: 20px;' : 'left: 20px;'}
       bottom: 20px;
       width: 60px;
       height: 60px;
-      border-radius: 50%;
-      background: #3b82f6;
-      color: white;
-      border: none;
+      border-radius: 14px;
+      background: #0e2229;
+      color: #f3f5f2;
+      border: 1px solid #24434b;
       cursor: pointer;
       z-index: 999999;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 24px rgba(59, 130, 246, 0.35);
-      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(14, 34, 41, 0.28);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     `;
 
     button.addEventListener('click', toggleWidget);
@@ -99,9 +100,9 @@ import { chatBubbleIcon, closeIcon } from './icons';
       max-width: calc(100vw - 40px);
       max-height: calc(100vh - 110px);
       z-index: 999998;
-      border-radius: 16px;
+      border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 36px rgba(14, 34, 41, 0.22);
       display: none;
       opacity: 0;
       transform: translateY(10px);
@@ -184,8 +185,8 @@ import { chatBubbleIcon, closeIcon } from './icons';
         if (container) container.style.display = 'none';
       }, 300);
       // Change button icon back to chat
-      button.innerHTML = chatBubbleIcon;
-      button.style.background = '#3b82f6';
+      button.innerHTML = relayMarkIcon;
+      button.style.background = '#0e2229';
     }
   }
 

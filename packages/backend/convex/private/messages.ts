@@ -1,7 +1,7 @@
 import { saveMessage } from '@convex-dev/agent';
 import { paginationOptsValidator } from 'convex/server';
 import { ConvexError, v } from 'convex/values';
-import { openai } from '@ai-sdk/openai';
+import { cohere } from '@ai-sdk/cohere';
 import { generateText } from 'ai';
 import { components, internal } from '../_generated/api';
 import { action, mutation, query } from '../_generated/server';
@@ -139,7 +139,7 @@ export const enhanceResponse = action({
     }
 
     const response = await generateText({
-      model: openai('gpt-4o-mini'),
+      model: cohere('command-a-03-2025'),
       messages: [
         {
           role: 'system',

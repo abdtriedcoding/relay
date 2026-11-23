@@ -1,0 +1,3 @@
+Relay demo verification phrase: purple monkey dishwasher.
+
+The support agent should retrieve this exact phrase from the knowledge base when asked about the relay demo verification phrase.

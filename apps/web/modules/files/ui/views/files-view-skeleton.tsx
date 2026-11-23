@@ -28,9 +28,9 @@ const mockFiles = createMockFiles(5);
 export const FilesViewSkeleton = () => {
   return (
     <>
-      <div className='mb-2 flex flex-wrap items-center justify-between space-y-2'>
+      <div className='mb-4 flex flex-wrap items-center justify-between gap-2 border-b pb-4'>
         <div className='p-4'>
-          <h2 className='text-xl font-bold tracking-tight'>Knowledge Base</h2>
+          <h2 className='font-display text-xl font-semibold tracking-[-0.03em]'>Knowledge Base</h2>
           <p className='text-muted-foreground text-sm'>
             Upload and manage documents for your AI assistant
           </p>

@@ -8,9 +8,13 @@ export const WidgetErrorScreen = () => {
   return (
     <>
       <WidgetHeader>
-        <div className='flex flex-col justify-between gap-y-2 px-2 py-6'>
-          <p className='text-3xl'>Hi there! 👋</p>
-          <p className='text-lg'>Let's get you started</p>
+        <div className='flex flex-col gap-y-1.5 px-2 py-5'>
+          <p className='text-xs tracking-[0.08em] text-sidebar-foreground/60'>
+            Relay support
+          </p>
+          <p className='font-display text-2xl leading-tight font-semibold tracking-[-0.035em]'>
+            We hit a snag
+          </p>
         </div>
       </WidgetHeader>
       <div className='flex flex-1 flex-col items-center justify-center gap-y-4 p-4'>

@@ -3,9 +3,9 @@ import { VapiPlugin } from '@/modules/plugins/ui/components/vapi-plugin';
 export const VapiView = () => {
   return (
     <>
-      <div className='mb-2 flex flex-wrap items-center justify-between space-y-2'>
+      <div className='mb-4 flex flex-wrap items-center justify-between gap-2 border-b pb-4'>
         <div className='px-4'>
-          <h2 className='text-xl font-bold tracking-tight'>VAPI Plugin</h2>
+          <h2 className='font-display text-xl font-semibold tracking-[-0.03em]'>VAPI Plugin</h2>
           <p className='text-muted-foreground text-sm'>
             Connect Vapi to enable AI voice calls and phone support
           </p>

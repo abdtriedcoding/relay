@@ -1,10 +1,9 @@
-// Chat bubble SVG icon
-export const chatBubbleIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+// Relay mark: an R whose leg ends in a signal dot.
+export const relayMarkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+  <path d="M13 30V11H20.5C25.2 11 25.2 20 20.5 20H13M19.5 20L27 29" stroke="#F3F5F2" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+  <circle cx="28" cy="29.5" r="2.8" fill="#FFC94A"/>
 </svg>`;
 
-// Close X icon
-export const closeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <line x1="18" y1="6" x2="6" y2="18"></line>
-  <line x1="6" y1="6" x2="18" y2="18"></line>
+export const closeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F3F5F2" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+  <path d="M18 6 6 18M6 6l12 12"></path>
 </svg>`;

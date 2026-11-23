@@ -1,12 +1,12 @@
 import type { StorageActionWriter } from 'convex/server';
-import { openai } from '@ai-sdk/openai';
+import { cohere } from '@ai-sdk/cohere';
 import { generateText } from 'ai';
 import { Id } from '../_generated/dataModel';
 
 const AI_MODELS = {
-  image: openai.chat('gpt-4o-mini'),
-  pdf: openai.chat('gpt-4o'),
-  html: openai.chat('gpt-4o')
+  image: cohere('command-a-vision-07-2025'),
+  pdf: cohere('command-a-03-2025'),
+  html: cohere('command-a-03-2025')
 } as const;
 
 const SUPPORTED_IMAGE_MIME_TYPES = [

@@ -9,15 +9,15 @@ interface ConversationStatusIconProps {
 const statusMap = {
   unresolved: {
     icon: ArrowRightIcon,
-    bgColor: 'bg-destructive'
+    bgColor: 'bg-destructive text-destructive-foreground'
   },
   escalated: {
     icon: ArrowUpIcon,
-    bgColor: 'bg-yellow-500'
+    bgColor: 'bg-signal text-[#12262e]'
   },
   resolved: {
     icon: CheckIcon,
-    bgColor: 'bg-[#3fb62f]'
+    bgColor: 'bg-success text-white'
   }
 } as const;
 
@@ -30,12 +30,12 @@ export const ConversationStatusIcon = ({
   return (
     <div
       className={cn(
-        'flex items-center justify-center rounded-full p-1.5',
+        'flex items-center justify-center p-1.5',
         bgColor,
         className
       )}
     >
-      <Icon className='stroke-3 size-3 text-white' />
+      <Icon className='stroke-3 size-3' />
     </div>
   );
 };

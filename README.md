@@ -9,7 +9,7 @@ Relay gives every product a support surface in minutes — drop a single script 
 ## Key features
 
 - **Embeddable chat widget** — floating launcher rendered in an isolated iframe, configured per organization (position, branding, greeting).
-- **AI support agent** — conversational agent built on Convex Agent + OpenAI, grounded in your knowledge base via RAG.
+- **AI support agent** — conversational agent built on Convex Agent + Cohere, grounded in your knowledge base via RAG.
 - **Knowledge base** — upload documents (PDF, text, and more), extract and chunk content, and index it for semantic retrieval.
 - **Voice calling** — browser-based voice conversations through Vapi, with per-organization credentials.
 - **Real-time inbox** — live conversation list, threaded messages, contact metadata, and unread state backed by Convex subscriptions.
@@ -49,6 +49,22 @@ Relay gives every product a support surface in minutes — drop a single script 
 | :---: | :---: |
 | ![Widget authentication](github/images/widget-embed-3.png) | ![Widget chat interface](github/images/widget-embed-4.png) |
 
+### Current design
+
+[Open the full interface gallery](screenshots/relay-complete-gallery.html). It collects 18 screenshots from all three apps, including a visitor AI exchange and an operator reply in the inbox.
+
+| Dashboard | Conversations |
+| :---: | :---: |
+| ![Workspace home](screenshots/redesign-web-home-light.png) | ![Operator inbox](screenshots/redesign-web-conversations-light.png) |
+
+| Widget chat | Embed launcher |
+| :---: | :---: |
+| ![Visitor chat](screenshots/redesign-widget-chat.png) | ![Floating launcher](screenshots/redesign-embed-open.png) |
+
+| Dashboard in dark theme | Widget contact options |
+| :---: | :---: |
+| ![Dark theme](screenshots/redesign-web-home-dark.png) | ![Contact options](screenshots/redesign-widget-selection.png) |
+
 ## Architecture
 
 A Turborepo monorepo managed with pnpm workspaces:
@@ -74,7 +90,7 @@ Dashboard routes: `/conversations`, `/conversations/[conversationId]`, `/files`,
 | --- | --- |
 | Frontend | Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, shadcn/ui, Zustand, React Hook Form, Zod |
 | Backend | Convex (real-time database, queries, mutations, HTTP actions) |
-| AI | OpenAI via AI SDK, `@convex-dev/agent`, `@convex-dev/rag` |
+| AI | Cohere via AI SDK, `@convex-dev/agent`, `@convex-dev/rag` |
 | Auth | Clerk (organizations, webhooks via Svix) |
 | Voice | Vapi |
 | Secrets | AWS Secrets Manager |
@@ -87,7 +103,7 @@ Dashboard routes: `/conversations`, `/conversations/[conversationId]`, `/files`,
 - Node.js >= 20
 - pnpm 10 (`corepack enable`)
 - A Convex deployment (cloud, or the bundled Docker setup)
-- Clerk application, OpenAI API key
+- Clerk application, Cohere trial key (no card needed)
 - Optional: Vapi API key, AWS credentials (Secrets Manager), Sentry auth token
 
 ### Install
@@ -97,6 +113,16 @@ git clone https://github.com/abdtriedcoding/relay.git
 cd relay
 pnpm install
 ```
+
+### Free demo setup
+
+Cohere's trial key is the only AI key this project needs. Create an account at dashboard.cohere.com/api-keys and create a trial key. It needs no card and allows 1,000 API calls a month.
+
+Put the key in `packages/backend/.env.local`, then run `pnpm check:ai`. The script calls chat and embeddings and prints the embedding dimension. It exits with an error until the key is filled in.
+
+Convex and Clerk both have free tiers. Leave Vapi and AWS Secrets Manager unset for a chat and knowledge base demo.
+
+Trial keys are for evaluation, not commercial use. The chat model is `command-a-03-2025`. The embedding model is `embed-v4.0`, which returns 1536 dimensions.
 
 ### Environment variables
 
@@ -116,7 +142,7 @@ CONVEX_URL=your_convex_url
 CLERK_JWT_ISSUER_DOMAIN=your_clerk_domain
 CLERK_SECRET_KEY=your_clerk_secret_key
 CLERK_WEBHOOK_SECRET=your_clerk_webhook_secret
-OPENAI_API_KEY=your_openai_api_key
+COHERE_API_KEY=your_cohere_api_key
 AWS_ACCESS_KEY_ID=your_aws_access_key_id
 AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
 AWS_REGION=your_aws_region

@@ -1,5 +1,5 @@
 import { createTool } from '@convex-dev/agent';
-import { openai } from '@ai-sdk/openai';
+import { cohere } from '@ai-sdk/cohere';
 import { generateText } from 'ai';
 import { z } from 'zod/v3';
 import { internal } from '../../_generated/api';
@@ -65,7 +65,7 @@ export const searchTool = createTool({
 
     const contextText = `Found results in ${titles.join(', ')}. Here is the context:\n\n${kbText}`;
     const response = await generateText({
-      model: openai.chat('gpt-4o-mini'),
+      model: cohere('command-a-03-2025'),
       messages: [
         {
           role: 'system',

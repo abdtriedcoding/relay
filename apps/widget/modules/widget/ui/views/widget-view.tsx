@@ -30,7 +30,7 @@ export const WidgetView = ({ orgId }: WidgetViewProps) => {
   };
 
   return (
-    <main className='bg-muted flex size-full flex-col overflow-hidden rounded-xl border'>
+    <main className='bg-background flex size-full flex-col overflow-hidden'>
       {screenComponents[screen]}
     </main>
   );

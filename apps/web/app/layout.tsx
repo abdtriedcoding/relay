@@ -1,18 +1,26 @@
 import { Toaster } from '@workspace/ui/components/sonner';
 import '@workspace/ui/globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { DM_Sans, Geist_Mono, Space_Grotesk } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { Providers } from '@/components/providers';
 
-const fontSans = Geist({
+const fontSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-sans'
+  variable: '--font-sans',
+  display: 'swap'
+});
+
+const fontDisplay = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap'
 });
 
 const fontMono = Geist_Mono({
   subsets: ['latin'],
-  variable: '--font-mono'
+  variable: '--font-mono',
+  display: 'swap'
 });
 
 export default function RootLayout({
@@ -23,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body
-        className={`${fontSans.variable} ${fontMono.variable} overflow-hidden overscroll-none font-sans antialiased`}
+        className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable} overflow-hidden overscroll-none font-sans antialiased`}
       >
         <NextTopLoader showSpinner={false} color='var(--primary)' />
         <Toaster richColors />
